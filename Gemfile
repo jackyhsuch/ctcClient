@@ -51,4 +51,9 @@ gem 'rails_12factor', group: :production
 # for using react with rails
 gem 'react-rails', '~> 1.0'
 
+# for secured password
+gem 'bcrypt', '3.1.11'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+
 ruby "2.2.4"
