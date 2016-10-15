@@ -1,3 +1,24 @@
 // Place all the styles related to the Towers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.towers-button, .topics-button {
+	position: relative;
+    background-color: #204056;
+    height: 10.5rem;
+}
+
+.towers-box, .topics-box {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	
+}
+
+.towers-title, .topics-title {
+	color: white;
+	position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+}

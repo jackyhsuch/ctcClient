@@ -1,0 +1,18 @@
+<% title @tower.name.upcase %>
+<%= render 'layouts/header' %>
+
+<div class="container">
+	<h1 class="text-center"><%= @tower.name.upcase %></h1>
+</div>
+
+<div class="container">
+	<% @topics.each do |topic| %>
+		<div class="col-md-4 topics-box">
+			<a href="/">
+				<div class="topics-button">
+					<span class="topics-title"><%= topic.name %></span>
+				</div>
+			</a>
+		</div>
+	<% end %>
+</div>

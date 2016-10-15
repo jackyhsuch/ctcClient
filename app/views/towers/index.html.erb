@@ -1,18 +1,20 @@
-<% title "" %>
+<% title "Towers" %>
 <%= render 'layouts/header' %>
 
-<h2>Hello _User_!!!</h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
-
-
-
-
-<div>
-<center> <a href="http://google.com"> <img src="/IT_tower.jpeg" height="200" width="400"> </img> </a> </center>
+<div class="container">
+	<h1 class="text-center">TOWERS</h1>
 </div>
 
-<div>
-<center> <a href="http://google.com"> <img src="/Biz_tower.jpeg" height="200" width="400"> </img> </a> </center>
+
+<div class="container">
+	<% @towers.each do |tower| %>
+		
+		<div class="col-md-4 towers-box">
+			<a href="<%= tower_path(tower.id) %>">
+				<div class="towers-button">
+					<span class="towers-title"><%= tower.name.upcase %></span>
+				</div>
+			</a>
+		</div>
+	<% end %>
 </div>
