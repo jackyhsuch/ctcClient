@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20161017070122) do
     t.string   "nationality"
     t.date     "date_of_birth"
     t.integer  "contact_number"
-    t.string   "email_address"
+    t.string   "email"
     t.datetime "created_at",      default: "now()", null: false
     t.datetime "updated_at",      default: "now()", null: false
   end

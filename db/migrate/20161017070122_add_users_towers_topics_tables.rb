@@ -28,7 +28,7 @@ class AddUsersTowersTopicsTables < ActiveRecord::Migration
 			t.string :nationality
 			t.date :date_of_birth
 			t.integer :contact_number
-			t.string :email_address
+			t.string :email
 			t.timestamps null: false
 		end
 
