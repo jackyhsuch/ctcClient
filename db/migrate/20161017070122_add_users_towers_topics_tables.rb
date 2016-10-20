@@ -1,4 +1,4 @@
-class Add_users_towers_topics_tables < ActiveRecord::Migration
+class AddUsersTowersTopicsTables < ActiveRecord::Migration
 
 	def change
 
@@ -12,7 +12,7 @@ class Add_users_towers_topics_tables < ActiveRecord::Migration
 
 		create_table :topics, force: :cascade do |t|
 			t.string :name
-			t.belongs_to :tower,	class_name: "Database",
+			t.belongs_to :tower,	class_name: "AddUsersTowersTopicsTables",
 						foreign_key: "id"
 			t.timestamps null: false
 		end
@@ -28,7 +28,7 @@ class Add_users_towers_topics_tables < ActiveRecord::Migration
 			t.string :nationality
 			t.date :date_of_birth
 			t.integer :contact_number
-			t.string :email_address
+			t.string :email
 			t.timestamps null: false
 		end
 
