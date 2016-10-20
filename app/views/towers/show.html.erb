@@ -8,7 +8,7 @@
 <div class="container">
 	<% @topics.each do |topic| %>
 		<div class="col-md-4 topics-box">
-			<a href="/">
+			<a href="<%= topic_path(topic.id) %>">
 				<div class="topics-button">
 					<span class="topics-title"><%= topic.name %></span>
 				</div>

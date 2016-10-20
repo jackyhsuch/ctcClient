@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017070122) do
+ActiveRecord::Schema.define(version: 20161019141454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "question"
+    t.string   "choice_A"
+    t.string   "choice_B"
+    t.string   "choice_C"
+    t.string   "choice_D"
+    t.string   "answer"
+    t.datetime "created_at", default: "now()", null: false
+    t.datetime "updated_at", default: "now()", null: false
+  end
 
   create_table "topics", force: :cascade do |t|
     t.string   "name"
@@ -42,5 +53,24 @@ ActiveRecord::Schema.define(version: 20161017070122) do
     t.datetime "updated_at",      default: "now()", null: false
   end
 
+  create_table "zones", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "difficulty"
+    t.integer  "topic_id"
+    t.datetime "created_at", default: "now()", null: false
+    t.datetime "updated_at", default: "now()", null: false
+  end
+
+  create_table "zones_questions", id: false, force: :cascade do |t|
+    t.integer  "zone_id"
+    t.integer  "question_id"
+    t.datetime "created_at",  default: "now()", null: false
+    t.datetime "updated_at",  default: "now()", null: false
+  end
+
+  add_index "zones_questions", ["question_id"], name: "index_zones_questions_on_question_id", using: :btree
+  add_index "zones_questions", ["zone_id"], name: "index_zones_questions_on_zone_id", using: :btree
+
   add_foreign_key "topics", "towers"
+  add_foreign_key "zones", "topics"
 end

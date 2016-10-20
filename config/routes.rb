@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :towers
+  resources :topics
+  resources :zones
 
 
 
