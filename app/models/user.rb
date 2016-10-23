@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 
+<<<<<<< HEAD
 	before_save {self.email = email.downcase}
 	before_save {self.name = name.downcase}
 
@@ -26,4 +27,6 @@ class User < ActiveRecord::Base
 		BCrypt::Password.create(string, cost: cost)
 	end
 
+=======
+>>>>>>> refs/remotes/origin/database-seeds
 end
