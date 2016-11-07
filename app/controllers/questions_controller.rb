@@ -7,6 +7,28 @@ class QuestionsController < ApplicationController
         # id is zone_id
         @question = Question.find(questionId)
         # @question = Zones_Question.where(zone_id: zoneId, question_id: questionId)
+        @zone = Zone.find(zoneId)
+    end
 
+    def submit
+        # @userAns = params[:optionsRadios]
+        @userAns = params[:userAns]
+        @correctAns = Question.find(params[:questionId]).answer
+
+        if @userAns == @correctAns
+            @respond = true
+        else
+            @respond = false
+        end
+
+        respond_to do |format|
+            format.html
+            format.js {} 
+            format.json { 
+                render json: {
+                    isCorrect: @respond
+                }
+            } 
+        end
     end
 end

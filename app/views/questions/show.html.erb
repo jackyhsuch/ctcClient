@@ -2,33 +2,40 @@
 <%= render 'layouts/header' %>
 
 <div class="container">
-    <h1 class="text-center">Zone of </h1>
+    <h1 class="text-center"><%= @zone.name %></h1>
+    <span class="pull-right">Lives left:</span>
+
 </div>
 
+
 <div class="container">
+    <%= form_for(:question, remote: true) do |f| %>
     <div class="panel panel-default">
-      <div class="panel-heading"><%= @question.question %></div>
-      <div class="panel-body">
-        <div class = "radio">
-            <label>
-            <input type = "radio" name = "optionsRadios" id = "optionsRadios1" value = "option1" > <%= @question.choice_A %>
-            </label>
+        <div class="panel-heading"><%= @question.question %></div>
+            <div class="panel-body">
+                <div class = "radio">
+                    <label>
+                    <input type = "radio" name = "questionOptions" id = "optionsRadios1" value = "a" > <%= @question.choice_A %>
+                    </label>
+                </div>
+                <div class = "radio">
+                    <label>
+                    <input type = "radio" name = "questionOptions" id = "optionsRadios2" value = "b" > <%= @question.choice_B %>
+                    </label>
+                </div>
+                <div class = "radio">
+                    <label>
+                    <input type = "radio" name = "questionOptions" id = "optionsRadios3" value = "c" > <%= @question.choice_C %>
+                    </label>
+                </div>
+                <div class = "radio">
+                    <label>
+                    <input type = "radio" name = "questionOptions" id = "optionsRadios4" value = "d" > <%= @question.choice_D %>
+                    </label>
+                </div>
+            </div>
         </div>
-        <div class = "radio">
-            <label>
-            <input type = "radio" name = "optionsRadios" id = "optionsRadios2" value = "option2" > <%= @question.choice_B %>
-            </label>
-        </div>
-        <div class = "radio">
-            <label>
-            <input type = "radio" name = "optionsRadios" id = "optionsRadios3" value = "option3" > <%= @question.choice_C %>
-            </label>
-        </div>
-        <div class = "radio">
-            <label>
-            <input type = "radio" name = "optionsRadios" id = "optionsRadios4" value = "option4" > <%= @question.choice_D %>
-            </label>
-        </div>
-      </div>
-    </div>
+        <button id = "question-submit-btn" data-questionid = "<%= @question.id %>" type = "button" class = "btn btn-info">Submit</button>
+    <% end %>
 </div>
+
