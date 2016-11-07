@@ -1,0 +1,34 @@
+<% title 'Questions' %>
+<%= render 'layouts/header' %>
+
+<div class="container">
+    <h1 class="text-center">Zone of </h1>
+</div>
+
+<div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading"><%= @question.question %></div>
+      <div class="panel-body">
+        <div class = "radio">
+            <label>
+            <input type = "radio" name = "optionsRadios" id = "optionsRadios1" value = "option1" > <%= @question.choice_A %>
+            </label>
+        </div>
+        <div class = "radio">
+            <label>
+            <input type = "radio" name = "optionsRadios" id = "optionsRadios2" value = "option2" > <%= @question.choice_B %>
+            </label>
+        </div>
+        <div class = "radio">
+            <label>
+            <input type = "radio" name = "optionsRadios" id = "optionsRadios3" value = "option3" > <%= @question.choice_C %>
+            </label>
+        </div>
+        <div class = "radio">
+            <label>
+            <input type = "radio" name = "optionsRadios" id = "optionsRadios4" value = "option4" > <%= @question.choice_D %>
+            </label>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get    'questions/show'
+
   get    'sessions/new'
   get    'users/new'
   
@@ -18,6 +20,8 @@ Rails.application.routes.draw do
   resources :towers
   resources :topics
   resources :zones
+  resources :zones_question
+  resources :questions
 
 
 
