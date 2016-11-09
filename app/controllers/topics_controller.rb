@@ -9,7 +9,7 @@ class TopicsController < ApplicationController
             @questionCount.push(Zones_Question.where(zone_id: zone.id).count)
         end
 
-
+        @overAllCount = 1
 	end
 end
 

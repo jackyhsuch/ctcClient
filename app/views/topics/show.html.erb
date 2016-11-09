@@ -13,7 +13,6 @@
 					<a data-toggle="collapse" href="#collapse_<%=zone.difficulty %>">
 						<h4 class="panel-title">
 							<%= zone.name %>
-							<%= count %>
 						</h4>
 					</a>
 				</div>
@@ -21,7 +20,8 @@
 					<ul class="list-group">
 						<% for i in (1..@questionCount[count]) %>
 						<a href="<%= question_path(:zone_id=>zone.id, :question_id=>i) %>" data-method="get">
-							<li class="list-group-item">Level <%= i %></li>
+							<li class="list-group-item">Level <%= @overAllCount %></li>
+							<% @overAllCount += 1 %>
 						</a>
 						<% end %>
 					</ul>
