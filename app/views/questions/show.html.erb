@@ -38,7 +38,7 @@
         <button id = "question-submit-btn" data-questionid = "<%= @question.id %>" type = "button" class = "btn btn-info">Submit</button>
         <span id="flash-message" style="display: none"></span>
         <% if not @next_question.nil? %>
-        <a href="<%= question_path(:zone_id=>@zone.id, :question_id=>@next_question.question_id) %>">
+        <a href="<%= question_path(:zone_id=>@zone.id, :question_id=>@next_question.question_id) %>" data-method="get">
             <button id = "" data-questionid = "<%= @question.id %>" type = "button" class = "btn btn-info pull-right">Next</button>
         </a>
         <% end %>
