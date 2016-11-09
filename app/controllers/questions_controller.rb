@@ -6,8 +6,9 @@ class QuestionsController < ApplicationController
         questionId = params[:question_id]
         # id is zone_id
         @question = Question.find(questionId)
-        # @question = Zones_Question.where(zone_id: zoneId, question_id: questionId)
         @zone = Zone.find(zoneId)
+
+        @next_question = Zones_Question.next(zoneId, questionId)
     end
 
     def submit

@@ -58,5 +58,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'coffee-script-source', '1.8.0'
 
+gem 'jquery-turbolinks'
+
 
 ruby "2.2.4"

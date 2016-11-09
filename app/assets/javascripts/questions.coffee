@@ -6,7 +6,7 @@ $ ->
     $("#question-submit-btn").click (e) ->
         ans = $('input[name=questionOptions]:checked').val()
         questionId = $(this).data("questionid")
-        console.log questionId
+
         $.ajax '/submit_answer',
         type: "POST",
         dataType: "JSON",
@@ -18,7 +18,13 @@ $ ->
         success: (data) ->
             console.log data
             if data["isCorrect"]
+                $("#flash-message").html("Correct!")
+                $("#flash-message").show()
                 console.log "correct"
             else
                 console.log "wrong"
+                $("#flash-message").html("Wrong!")
+                $("#flash-message").show()
+
+            $('#question-submit-btn').prop('disabled', true)
             
