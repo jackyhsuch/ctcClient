@@ -4,9 +4,9 @@ class TopicsController < ApplicationController
 		@topic = Topic.find(params[:id])
 		@zones = Zone.where(topic_id: params[:id]).order('zones.difficulty ASC')
 
-        @questionCount = []
-        @zones.each do |zone|
-            @questionCount.push(Zones_Question.where(zone_id: zone.id).count)
+        @questionsArray = []
+        @zones.each_with_index do |zone, count|
+            @questionsArray.push(Zones_Question.where(zone_id: zone.id).to_a)
         end
 
         @overAllCount = 1
