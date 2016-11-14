@@ -15,10 +15,18 @@ class QuestionsController < ApplicationController
         # @userAns = params[:optionsRadios]
         @userAns = params[:userAns]
         @correctAns = Question.find(params[:questionId]).answer
-
+        @currentUser = SessionsHelper.current_user
+        # progress = Progress.where("zones_id = ? AND users_id = ?", zones_id, users_id)
         if @userAns == @correctAns
+            # progress.quesitons_id = questionId
+            # progress.level = level
+            # progress.save
+            
             @respond = true
         else
+            # progress.lives -= 1
+            # progress.save
+
             @respond = false
         end
 
@@ -29,7 +37,7 @@ class QuestionsController < ApplicationController
                 render json: {
                     isCorrect: @respond
                 }
-            } 
+            }
         end
     end
 end
