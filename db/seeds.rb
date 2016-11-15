@@ -61,7 +61,7 @@ What is the result?',
 			choice_B: '100', 
 			choice_C: '1000', 
 			choice_D: '2', 
-			answer: '20')
+			answer: 'a')
 
 	Question.create(question: 'Given:
 public class MyStuff {
@@ -87,7 +87,7 @@ What is the result?',
 			choice_B: 'The output is false and MyStuff fulfills the Object.equals() contract', 
 			choice_C: 'The output is true and MyStuff does NOT fulfill the Object.equals() contract.', 
 			choice_D: 'The output is false and MyStuff does NOT fulfill the Object.equals() contract.', 
-			answer: 'The output is true and MyStuff does NOT fulfill the Object.equals() contract.')
+			answer: 'c')
 	
 	Zones_Question.create(zone_id: 1, question_id: 1)
 

@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019141454) do
+ActiveRecord::Schema.define(version: 20161112174734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "progresses", force: :cascade do |t|
+    t.integer  "users_id"
+    t.integer  "topics_id"
+    t.integer  "question_id"
+    t.integer  "lives"
+    t.integer  "level"
+    t.datetime "created_at",  default: "now()", null: false
+    t.datetime "updated_at",  default: "now()", null: false
+  end
+
+  add_index "progresses", ["topics_id"], name: "index_progresses_on_topics_id", using: :btree
+  add_index "progresses", ["users_id"], name: "index_progresses_on_users_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
     t.string   "question"
