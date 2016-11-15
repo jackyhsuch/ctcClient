@@ -6,6 +6,8 @@ $ ->
     $("#question-submit-btn").click (e) ->
         ans = $('input[name=questionOptions]:checked').val()
         questionId = $(this).data("questionid")
+        zoneId = $(this).data("zoneid")
+        level = $(this).data("level")
 
         $.ajax '/submit_answer',
         type: "POST",
@@ -13,6 +15,8 @@ $ ->
         data: {
             userAns: ans,
             questionId: questionId,
+            zoneId: zoneId,
+            level: level,
         },
         asnyc: false,
         success: (data) ->

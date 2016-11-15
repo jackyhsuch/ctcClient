@@ -9,26 +9,32 @@ class QuestionsController < ApplicationController
         @zone = Zone.find(zoneId)
 
         @next_question = Zones_Question.next(zoneId, questionId)
+
+        @progress = Progress.where("topics_id = ? AND users_id = ?", @zone.topic_id, current_user.id).first
+
+
+        @level = params[:level]
+        @next_level = params[:level].to_i + 1
     end
 
     def submit
         # @userAns = params[:optionsRadios]
         @userAns = params[:userAns]
         @correctAns = Question.find(params[:questionId]).answer
-        @currentUser = SessionsHelper.current_user
-        # progress = Progress.where("zones_id = ? AND users_id = ?", zones_id, users_id)
+        @zone = Zone.find(params[:zoneId])
+
+        @progress = Progress.where("topics_id = ? AND users_id = ?", @zone.topic_id, current_user.id).first
+        @progress.question_id = params[:questionId]
+        @progress.level = params[:level]
+
         if @userAns == @correctAns
-            # progress.quesitons_id = questionId
-            # progress.level = level
-            # progress.save
-            
             @respond = true
         else
-            # progress.lives -= 1
-            # progress.save
-
+            @progress.lives -= 1
             @respond = false
         end
+
+        @progress.save
 
         respond_to do |format|
             format.html

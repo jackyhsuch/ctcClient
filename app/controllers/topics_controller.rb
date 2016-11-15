@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
 
+
 	def show
 		@topic = Topic.find(params[:id])
 		@zones = Zone.where(topic_id: params[:id]).order('zones.difficulty ASC')
@@ -10,6 +11,20 @@ class TopicsController < ApplicationController
         end
 
         @overAllCount = 1
+
+        # check if progress exist, if not create a new progress for current user
+        @progress = Progress.where("topics_id = ? AND users_id = ?", @topic.id, current_user.id)
+
+        if @progress.blank?
+            Progress.create(
+                users_id: current_user.id,
+                topics_id:@topic.id,
+                lives: 5,
+                level: 0,
+            )
+        end
+
+        
 	end
 end
 
