@@ -13,10 +13,10 @@ class TopicsController < ApplicationController
         @overAllCount = 1
 
         # check if progress exist, if not create a new progress for current user
-        @progress = Progress.where("topics_id = ? AND users_id = ?", @topic.id, current_user.id)
+        @progress = Progress.where("topics_id = ? AND users_id = ?", @topic.id, current_user.id).first
 
         if @progress.blank?
-            Progress.create(
+            @progress = Progress.create(
                 users_id: current_user.id,
                 topics_id:@topic.id,
                 lives: 5,
