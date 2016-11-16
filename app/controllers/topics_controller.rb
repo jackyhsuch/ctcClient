@@ -19,6 +19,7 @@ class TopicsController < ApplicationController
             @progress = Progress.create(
                 users_id: current_user.id,
                 topics_id:@topic.id,
+                question_id: 0,
                 lives: 5,
                 level: 0,
             )

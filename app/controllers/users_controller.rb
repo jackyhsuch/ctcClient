@@ -4,6 +4,9 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+
+		# pull progress and show current user's progresss on each tower
+		@progress = Progress.where(user_id: current_user.id)
 	end
 
 	def new
