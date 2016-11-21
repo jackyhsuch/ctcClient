@@ -6,7 +6,20 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 
 		# pull progress and show current user's progresss on each tower
-		@progress = Progress.where(user_id: current_user.id)
+		@progresses = Progress.where(users_id: current_user.id)
+
+		@progressArray = []
+
+		@progresses.each do |progress|
+			topic = Topic.find(progress.topics_id)
+			progress.topic_name = topic.name
+			progress.tower_id = topic.tower_id
+			progress.tower_name = Tower.find(topic.tower_id).name
+		end
+
+		@previousTowerId = 0
+
+
 	end
 
 	def new

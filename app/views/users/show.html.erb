@@ -3,15 +3,25 @@
 
 <%= @user.name %>, <%= @user.email %>
 
-<%= @progress %>
+
 
 
 <div class="container">
+	
+	<% @progresses.each do |progress| %>
+	<% if progress.tower_id.to_i != @previousTowerId.to_i %>
 	<div class="panel panel-default">
-		<div class="panel-heading">Panel heading without title</div>
+		<div class="panel-heading"><%= progress.tower_name %></div>
+	<% end %>
 		<div class="panel-body">
-			<h4>Label</h4>
-			Panel content
+			<h5><strong><%= progress.topic_name %></strong></h5>
+			<p>Current Level: <%= progress.level %></p>
+			<p>Lives: <%= progress.lives %></p>
 		</div>
+
+	<% @previousTowerId = progress.tower_id %>
+	<% if progress.tower_id != @previousTowerId %>
 	</div>
+	<% end %>
+	<% end %>
 </div>
