@@ -29,6 +29,7 @@ $ ->
                 console.log "wrong"
                 $("#flash-message").html("Wrong!")
                 $("#flash-message").show()
+                $("#show-life").html("Lives left: " + data["lives"])
 
             $('#question-submit-btn').prop('disabled', true)
             

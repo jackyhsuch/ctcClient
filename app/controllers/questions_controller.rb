@@ -15,6 +15,12 @@ class QuestionsController < ApplicationController
 
         @level = params[:level]
         @next_level = params[:level].to_i + 1
+
+        @finishedLevel = false
+        if @level.to_i <= @progress.level
+            @finishedLevel = true
+        end
+
     end
 
     def submit
@@ -41,7 +47,8 @@ class QuestionsController < ApplicationController
             format.js {} 
             format.json { 
                 render json: {
-                    isCorrect: @respond
+                    isCorrect: @respond,
+                    lives: @progress.lives
                 }
             }
         end

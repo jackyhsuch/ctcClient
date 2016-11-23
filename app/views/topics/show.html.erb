@@ -19,7 +19,7 @@
 				<div id="collapse_<%=zone.difficulty %>" class="panel-collapse collapse">
 					<ul class="list-group">	
 						<% for zones_question in @questionsArray[count] %>
-						<a <% if @overAllCount != @progress.level %> href="<%= question_path(:zone_id=>zone.id, :question_id=>zones_question.question_id, :level=>@overAllCount) %>" <% end %> data-method="get">
+						<a <% if @overAllCount > @progress.level %> href="<%= question_path(:zone_id=>zone.id, :question_id=>zones_question.question_id, :level=>@overAllCount) %>" data-method="get" <% else %> style="color: #ff6961" <% end %>>
 							<li class="list-group-item">Level <%= @overAllCount %></li>
 							<% @overAllCount += 1 %>
 						</a>
