@@ -3,8 +3,7 @@ class CreateProgresses < ActiveRecord::Migration
         create_table :progresses do |t|
             t.belongs_to :users, index: true
             t.belongs_to :topics, index: true
-
-            t.integer :question_id
+            t.belongs_to :quesitons, index: true
             t.integer :lives
             t.integer :level
 
