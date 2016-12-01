@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
         @question = Question.find(questionId)
         @zone = Zone.find(zoneId)
 
-        @next_question = Zones_Question.next(zoneId, questionId)
+        @next_question = Question.next(zoneId, questionId)
 
         @progress = Progress.where("topics_id = ? AND users_id = ?", @zone.topic_id, current_user.id).first
 

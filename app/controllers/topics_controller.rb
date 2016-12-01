@@ -7,7 +7,7 @@ class TopicsController < ApplicationController
 
         @questionsArray = []
         @zones.each_with_index do |zone, count|
-            @questionsArray.push(Zones_Question.where(zone_id: zone.id).to_a)
+            @questionsArray.push(Question.where(zone_id: zone.id).order(id: :asc).to_a)
         end
 
         @overAllCount = 1

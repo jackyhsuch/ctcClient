@@ -37,7 +37,7 @@
         <button id="question-submit-btn" data-questionid="<%= @question.id %>" data-level="<%= @level %>" data-zoneid="<%= @zone.id %>" type="button" class="btn btn-info" <% if @finishedLevel %>disabled<% end %>>Submit</button>
         <span id="flash-message" style="display: none"></span>
         <% if not @next_question.nil? %>
-        <a href="<%= question_path(:zone_id=>@zone.id, :question_id=>@next_question.question_id, :level=>@next_level) %>" data-method="get">
+        <a href="<%= question_path(:zone_id=>@zone.id, :question_id=>@next_question.id, :level=>@next_level) %>" data-method="get">
             <button id="" data-questionid="<%= @question.id %>" type="button" class="btn btn-info pull-right">Next</button>
         </a>
         <% end %>

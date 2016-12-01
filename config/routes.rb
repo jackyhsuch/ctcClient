@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   resources :towers
   resources :topics
   resources :zones
-  resources :zones_question
   resources :questions
 
 
