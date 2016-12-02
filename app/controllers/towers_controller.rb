@@ -7,7 +7,7 @@ class TowersController < ApplicationController
 
 	def show
 		@tower = Tower.find(params[:id])
-		@topics = Topic.where(tower_id: params[:id]).order(id: :asc)
+		@topics = Topic.where(towers_id: params[:id]).order(id: :asc)
 	end
 
 end
