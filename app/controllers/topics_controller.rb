@@ -3,11 +3,11 @@ class TopicsController < ApplicationController
 
 	def show
 		@topic = Topic.find(params[:id])
-		@zones = Zone.where(topic_id: params[:id]).order('zones.difficulty ASC')
+		@zones = Zone.where(topics_id: params[:id]).order('zones.difficulty ASC')
 
         @questionsArray = []
         @zones.each_with_index do |zone, count|
-            @questionsArray.push(Question.where(zone_id: zone.id).order(id: :asc).to_a)
+            @questionsArray.push(Question.where(zones_id: zone.id).order(id: :asc).to_a)
         end
 
         @overAllCount = 1
@@ -18,8 +18,8 @@ class TopicsController < ApplicationController
         if @progress.blank?
             @progress = Progress.create(
                 users_id: current_user.id,
-                topics_id:@topic.id,
-                question_id: 0,
+                topics_id: @topic.id,
+                questions_id: 0,
                 lives: 5,
                 level: 0,
             )

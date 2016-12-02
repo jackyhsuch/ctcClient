@@ -1,5 +1,4 @@
 <% title @topic.name.upcase %>
-<%= render 'layouts/header' %>
 
 <div class="container">
 	<h1 class="text-center"><%= @topic.name.upcase %></h1>
@@ -12,7 +11,7 @@
 				<div class="panel-heading">
 					<a data-toggle="collapse" href="#collapse_<%=zone.difficulty %>">
 						<h4 class="panel-title">
-							<%= zone.name %>
+							Zone of <%= zone.name.capitalize %>
 						</h4>
 					</a>
 				</div>
