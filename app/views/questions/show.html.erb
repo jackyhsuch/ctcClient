@@ -1,5 +1,4 @@
 <% title 'Questions' %>
-<%= render 'layouts/header' %>
 
 <div class="container">
     <h1 class="text-center"><%= @zone.name %></h1>
@@ -14,22 +13,22 @@
             <div class="panel-body">
                 <div class = "radio">
                     <label>
-                    <input type = "radio" name = "questionOptions" id = "optionsRadios1" value = "a" > <%= @question.choice_A %>
+                    <input type = "radio" name = "questionOptions" id = "optionsRadios1" value = "a" > <%= @question.a %>
                     </label>
                 </div>
                 <div class = "radio">
                     <label>
-                    <input type = "radio" name = "questionOptions" id = "optionsRadios2" value = "b" > <%= @question.choice_B %>
+                    <input type = "radio" name = "questionOptions" id = "optionsRadios2" value = "b" > <%= @question.b %>
                     </label>
                 </div>
                 <div class = "radio">
                     <label>
-                    <input type = "radio" name = "questionOptions" id = "optionsRadios3" value = "c" > <%= @question.choice_C %>
+                    <input type = "radio" name = "questionOptions" id = "optionsRadios3" value = "c" > <%= @question.c %>
                     </label>
                 </div>
                 <div class = "radio">
                     <label>
-                    <input type = "radio" name = "questionOptions" id = "optionsRadios4" value = "d" > <%= @question.choice_D %>
+                    <input type = "radio" name = "questionOptions" id = "optionsRadios4" value = "d" > <%= @question.d %>
                     </label>
                 </div>
             </div>

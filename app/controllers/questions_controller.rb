@@ -10,7 +10,7 @@ class QuestionsController < ApplicationController
 
         @next_question = Question.next(zoneId, questionId)
 
-        @progress = Progress.where("topics_id = ? AND users_id = ?", @zone.topic_id, current_user.id).first
+        @progress = Progress.where("topics_id = ? AND users_id = ?", @zone.topics_id, current_user.id).first
 
 
         @level = params[:level]
@@ -29,8 +29,8 @@ class QuestionsController < ApplicationController
         @correctAns = Question.find(params[:questionId]).answer
         @zone = Zone.find(params[:zoneId])
 
-        @progress = Progress.where("topics_id = ? AND users_id = ?", @zone.topic_id, current_user.id).first
-        @progress.question_id = params[:questionId]
+        @progress = Progress.where("topics_id = ? AND users_id = ?", @zone.topics_id, current_user.id).first
+        @progress.questions_id = params[:questionId]
         @progress.level = params[:level]
 
         if @userAns == @correctAns

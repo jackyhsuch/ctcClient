@@ -13,8 +13,8 @@ class UsersController < ApplicationController
 		@progresses.each do |progress|
 			topic = Topic.find(progress.topics_id)
 			progress.topic_name = topic.name
-			progress.tower_id = topic.tower_id
-			progress.tower_name = Tower.find(topic.tower_id).name
+			progress.tower_id = topic.towers_id
+			progress.tower_name = Tower.find(topic.towers_id).name
 		end
 
 		@previousTowerId = 0

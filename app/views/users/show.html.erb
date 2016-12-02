@@ -6,10 +6,10 @@
 	<% @progresses.each do |progress| %>
 	<% if progress.tower_id.to_i != @previousTowerId.to_i %>
 	<div class="panel panel-default">
-		<div class="panel-heading"><%= progress.tower_name %></div>
+		<div class="panel-heading"><%= progress.tower_name.upcase %></div>
 	<% end %>
 		<div class="panel-body">
-			<h5><strong><%= progress.topic_name %></strong></h5>
+			<h5><strong><%= progress.topic_name.capitalize %></strong></h5>
 			<p>Current Level: <%= progress.level %></p>
 			<p>Lives: <%= progress.lives %></p>
 		</div>
