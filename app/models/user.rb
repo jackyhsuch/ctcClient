@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
 	before_save {self.first_name = first_name.downcase}
 	before_save {self.last_name = last_name.downcase}
 
-	#validate username
-	validates :name, presence: true, length: { maximum: 50 },
-				uniqueness: { case_sensitive: false }
+	# #validate username
+	# validates :name, presence: true, length: { maximum: 50 },
+	# 			uniqueness: { case_sensitive: false }
 
 	#validate email
 

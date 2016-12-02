@@ -1,100 +1,159 @@
-puts "********Seeding Data Start************"
+puts "********User Start************"
 
-admin = User.create(first_name: 'Wen Luo', last_name: 'Lau', 
-		name: 'wenluo92', nationality: 'Singaporean', 
-		date_of_birth: '1992-02-13', contact_number: 11111111, 
-		email: 'wenluo92@hotmail.com', password_digest: 'wenluo92')
+User.create(
+	first_name: 'jacky', 
+	last_name: 'hsu', 
+	nationality: 'singaporean', 
+	date_of_birth: '1991-01-02', 
+	contact: 91734806, 
+	email: 'jackyhsu0102@gmail.com', 
+	password: 'password',
+	password_confirmation: 'password')
 
-	User.create(first_name: 'Wei Tao', last_name: 'Soh', 
-		name: 'wt87', nationality: 'Singaporean', 
-		date_of_birth: '1987-10-15', contact_number: 22222222, 
-		email: 'wt87@hotmail.com', password_digest: '87wt')
+User.create(
+	first_name: 'jovio', 
+	last_name: 'lim', 
+	nationality: 'singaporean', 
+	date_of_birth: '1991-04-20', 
+	contact: 91734806, 
+	email: 'jovio@gmail.com', 
+	password: 'password',
+	password_confirmation: 'password')
 
-	User.create(first_name: 'Zie Hao', last_name: 'Kek', 
-		name: 'zh91', nationality: 'Singaporean', 
-		date_of_birth: '1991-01-18', contact_number: 33333333, 
-		email: 'zh91@hotmail.com', password_digest: '91zh')
+User.create(
+	first_name: 'wenluo', 
+	last_name: 'lau', 
+	nationality: 'singaporean', 
+	date_of_birth: '1992-02-13', 
+	contact: 11111111, 
+	email: 'wenluo@gmail.com', 
+	password: 'password',
+	password_confirmation: 'password')
 
-	User.create(first_name: 'Jason', last_name: 'Cheong', 
-		name: 'jc91', nationality: 'Singaporean', 
-		date_of_birth: '1991-06-12', contact_number: 44444444, 
-		email: 'jc91@hotmail.com', password_digest: '91jc')
+User.create(
+	first_name: 'weitao', 
+	last_name: 'soh', 
+	nationality: 'singaporean', 
+	date_of_birth: '1987-10-15', 
+	contact: 22222222, 
+	email: 'weitao@gmail.com', 
+	password: 'password',
+	password_confirmation: 'password')
 
-	User.create(first_name: 'Kah Seng', last_name: 'Lim', 
-		name: 'ks91', nationality: 'Singaporean', 
-		date_of_birth: '1991-08-23', contact_number: 55555555, 
-		email: 'ks91@hotmail.com', password_digest: '91ks')
-	
-	Tower.create(name: 'IT')
+User.create(
+	first_name: 'ziehao', 
+	last_name: 'kek', 
+	nationality: 'singaporean', 
+	date_of_birth: '1991-01-18', 
+	contact: 98675125, 
+	email: 'ziehao@gmail.com', 
+	password: 'password',
+	password_confirmation: 'password')
 
-	Tower.create(name: 'Business')
-	
-	Topic.create(name: 'Java', tower_id: 1)
+User.create(
+	first_name: 'jason', 
+	last_name: 'cheong', 
+	nationality: 'singaporean', 
+	date_of_birth: '1991-06-12', 
+	contact: 44444444, 
+	email: 'jason@gmail.com', 
+	password: 'password',
+	password_confirmation: 'password')
 
-	Topic.create(name: 'Ruby', tower_id: 1)
-
-	Topic.create(name: 'Python', tower_id: 1)
-
-	Zone.create(name: 'Zone of Trail', difficulty: 1, topic_id: 1)
-
-	Zone.create(name: 'Zone of Insanity', difficulty: 2, topic_id: 1)
-
-	Zone.create(name: 'Zone of Despair', difficulty: 3, topic_id: 1)
-
-	Question.create(question: 'Given:
-public class Calculator {
- int num = 100;
- public void calc(int num) {
- this.num = num * 10;
- }
- public void printNum(){
- System.out.println(num);
- }
- public static void main(String[] args) {
- Calculator obj = new Calculator ();
- obj.calc(2);
- obj.printNum();
- }
-}
-What is the result?',
-			choice_A: '20', 
-			choice_B: '100', 
-			choice_C: '1000', 
-			choice_D: '2', 
-			answer: 'a')
-
-	Question.create(question: 'Given:
-public class MyStuff {
- String name;
- MyStuff(String n) {
- name = n;
- }
- public static void main(String[] args) {
- MyStuff m1 = new MyStuff("guitar");
- MyStuff m2 = new MyStuff("tv");
- System.out.println(m2.equals(m1));
- }
- public boolean equals(Object o) {
- MyStuff m = (MyStuff) o;
- if (m.name != null) {
- return true;
- }
- return false;
- }
-}
-What is the result?',
-			choice_A: 'The output is true and MyStuff fulfills the Object.equals() contract.', 
-			choice_B: 'The output is false and MyStuff fulfills the Object.equals() contract', 
-			choice_C: 'The output is true and MyStuff does NOT fulfill the Object.equals() contract.', 
-			choice_D: 'The output is false and MyStuff does NOT fulfill the Object.equals() contract.', 
-			answer: 'c')
-	
-	Zones_Question.create(zone_id: 1, question_id: 1)
-
-	Zones_Question.create(zone_id: 1, question_id: 2)
-	
-
-puts "********Seeding Data End************"
+puts "********User End************"
 
 
+puts "********Tower Start************"
 
+Tower.create(name: 'it')
+Tower.create(name: 'business')
+
+puts "********Tower End************"
+
+
+puts "********Topic Start************"
+
+towerId = Tower.where(name: 'it').first.id
+Topic.create(name: 'java', towers_id: towerId)
+Topic.create(name: 'ruby', towers_id: towerId)
+Topic.create(name: 'python', towers_id: towerId)
+
+towerId = Tower.where(name: 'business').first.id
+Topic.create(name: 'finance', towers_id: towerId)
+Topic.create(name: 'marketing', towers_id: towerId)
+Topic.create(name: 'auditing', towers_id: towerId)
+
+puts "********Topic End************"
+
+
+puts "********Zone Start************"
+
+topicId = Topic.where(name: 'java').first.id
+Zone.create(name: 'test', difficulty: 1, topics_id: topicId)
+Zone.create(name: 'trail', difficulty: 2, topics_id: topicId)
+Zone.create(name: 'courage', difficulty: 3, topics_id: topicId)
+Zone.create(name: 'insanity', difficulty: 4, topics_id: topicId)
+Zone.create(name: 'despair', difficulty: 5, topics_id:topicId)
+
+topicId = Topic.where(name: 'finance').first.id
+Zone.create(name: 'trail', difficulty: 1, topics_id: topicId)
+Zone.create(name: 'courage', difficulty: 2, topics_id:topicId)
+Zone.create(name: 'madness', difficulty: 3, topics_id: topicId)
+Zone.create(name: 'insanity', difficulty: 4, topics_id:topicId)
+
+topicId = Topic.where(name: 'ruby').first.id
+Zone.create(name: 'trail', difficulty: 1, topics_id: topicId)
+Zone.create(name: 'courage', difficulty: 2, topics_id: topicId)
+Zone.create(name: 'despair', difficulty: 3, topics_id:topicId)
+
+puts "********Zone End************"
+
+
+puts "********Question Start************"
+
+
+topicId = Topic.where(name: 'java').first.id
+zoneId = Zone.where(topics_id: topicId, name: 'test').first.id
+Question.create(
+	question: 'What is Java?', a: 'a', b: 'b', c: 'c', d: 'd', answer: 'a', zones_id: zoneId
+)
+Question.create(
+	question: 'What is difference between JDK,JRE and JVM?', a: 'a', b: 'b', c: 'c', d: 'd', answer: 'd', zones_id: zoneId
+)
+Question.create(
+	question: 'How many types of memory areas are allocated by JVM?', a: 'a', b: 'b', c: 'c', d: 'd', answer: 'b', zones_id: zoneId
+)
+zoneId = Zone.where(topics_id: topicId, name: 'trail').first.id
+Question.create(
+	question: 'What is classloader?', a: 'a', b: 'b', c: 'c', d: 'd', answer: 'd', zones_id: zoneId
+)
+Question.create(
+	question: 'Is Empty .java file name a valid source file name?', a: 'a', b: 'b', c: 'c', d: 'd', answer: 'c', zones_id: zoneId
+)
+Question.create(
+	question: 'What if I write static public void instead of public static void?', a: 'a', b: 'b', c: 'c', d: 'd', answer: 'c', zones_id: zoneId
+)
+
+topicId = Topic.where(name: 'finance').first.id
+zoneId = Zone.where(topics_id: topicId, name: 'trail').first.id
+Question.create(
+	question: 'What is the cash flow statement?', a: 'a', b: 'b', c: 'c', d: 'd', answer: 'a', zones_id: zoneId
+)
+Question.create(
+	question: 'What is working capital?', a: 'a', b: 'b', c: 'c', d: 'd', answer: 'd', zones_id: zoneId
+)
+Question.create(
+	question: 'Is it possible for a company to show positive cash flows but be in grave trouble?', a: 'a', b: 'b', c: 'c', d: 'd', answer: 'b', zones_id: zoneId
+)
+zoneId = Zone.where(topics_id: topicId, name: 'courage').first.id
+Question.create(
+	question: 'How is it possible for a company to show positive net income but go bankrupt?', a: 'a', b: 'b', c: 'c', d: 'd', answer: 'd', zones_id: zoneId
+)
+Question.create(
+	question: 'I buy a piece of equipment, walk me through the impact on the 3 financial statements.', a: 'a', b: 'b', c: 'c', d: 'd', answer: 'c', zones_id: zoneId
+)
+Question.create(
+	question: 'What is goodwill?', a: 'a', b: 'b', c: 'c', d: 'd', answer: 'c', zones_id: zoneId
+)
+
+puts "********Question End************"
