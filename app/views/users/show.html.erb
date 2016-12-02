@@ -1,13 +1,8 @@
 <% title "Home" %>
-<%= render 'layouts/header' %>
 
-<%= @user.name %>, <%= @user.email %>
-
-
-
+<%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>, <%= @user.email %>
 
 <div class="container">
-	
 	<% @progresses.each do |progress| %>
 	<% if progress.tower_id.to_i != @previousTowerId.to_i %>
 	<div class="panel panel-default">
