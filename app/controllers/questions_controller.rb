@@ -21,6 +21,13 @@ class QuestionsController < ApplicationController
             @finishedLevel = true
         end
 
+        # when reach end of zone
+        if @next_question.nil?
+            @next_zone = Zone.next(@zone.topics_id, @zone.difficulty)
+            @next_zonequestion = Question.next(@next_zone.id, 0)
+        end
+        
+
     end
 
     def submit
