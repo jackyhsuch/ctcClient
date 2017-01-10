@@ -29,6 +29,7 @@
 <% end %>
 <% end %>
 
+<% @previousTowerId = 0 %>
 <h3 class="text-center">Completed <span class = "badge"><%= @completedProgresses.count %></span></h3>
 <% @completedProgresses.each do |completedProgress| %>
 <% if completedProgress.tower_id.to_i != @previousTowerId.to_i %>
