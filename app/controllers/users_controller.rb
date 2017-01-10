@@ -15,17 +15,19 @@ class UsersController < ApplicationController
 			progress.tower_name = Tower.find(topic.towers_id).name
 		end
 
-		@progresses.sort_by { |e| e.tower_id }
+		@progresses = @progresses.sort_by(&:tower_id)
 
 		# pull progress and show current user's progresss on each tower
 		@completedProgresses = Progress.where(users_id: current_user.id).where("lives = ?", 0)
 
 		@completedProgresses.each do |completedProgress|
-			topic = Topic.find(progress.topics_id)
+			topic = Topic.find(completedProgress.topics_id)
 			completedProgress.topic_name = topic.name
 			completedProgress.tower_id = topic.towers_id
 			completedProgress.tower_name = Tower.find(topic.towers_id).name
 		end
+
+		@completedProgresses = @completedProgresses.sort_by(&:tower_id)
 
 		@previousTowerId = 0
 
