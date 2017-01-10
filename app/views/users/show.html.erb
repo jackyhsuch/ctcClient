@@ -1,22 +1,54 @@
 <% title "Home" %>
 
-<%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>, <%= @user.email %>
+<h3 class="text-center">
+	<strong><%= @user.first_name.upcase %> <%= @user.last_name.upcase %></strong>
+</h3>
 
-<div class="container">
-	<% @progresses.each do |progress| %>
-	<% if progress.tower_id.to_i != @previousTowerId.to_i %>
-	<div class="panel panel-default">
-		<div class="panel-heading"><%= progress.tower_name.upcase %></div>
-	<% end %>
-		<div class="panel-body">
-			<h5><strong><%= progress.topic_name.capitalize %></strong></h5>
-			<p>Current Level: <%= progress.level %></p>
-			<p>Lives: <%= progress.lives %></p>
+<h3 class="text-center">In Progress <span class = "badge"><%= @progresses.count %></span></h3>
+
+<% @progresses.each do |progress| %>
+<% if progress.tower_id != @previousTowerId %>
+<br />
+<div class="text-center"><%= progress.tower_name.upcase %></div>
+<% end %>
+	<div class = "row">
+		<div class="col-md-6">
+			<p class="text-center"><%= progress.topic_name.capitalize %></p>
 		</div>
-
-	<% @previousTowerId = progress.tower_id %>
-	<% if progress.tower_id != @previousTowerId %>
+		<div class="col-md-3">
+			<span>Current Level: <%= progress.level %></span>
+		</div>
+		<div class="col-md-3">
+			<span>Lives: <%= progress.lives %></span>
+		</div>
 	</div>
-	<% end %>
-	<% end %>
+
+<% @previousTowerId = progress.tower_id %>
+<% if progress.tower_id != @previousTowerId %>
 </div>
+<% end %>
+<% end %>
+
+<h3 class="text-center">Completed <span class = "badge"><%= @completedProgresses.count %></span></h3>
+<% @completedProgresses.each do |completedProgress| %>
+<% if completedProgress.tower_id.to_i != @previousTowerId.to_i %>
+<br />
+<div class="text-center"><%= completedProgress.tower_name.upcase %></div>
+<% end %>
+	<div class = "row">
+		<div class="col-md-6">
+			<p class="text-center"><%= completedProgress.topic_name.capitalize %></p>
+		</div>
+		<div class="col-md-3">
+			<span>Current Level: <%= completedProgress.level %></span>
+		</div>
+		<div class="col-md-3">
+			<span>Lives: <%= completedProgress.lives %></span>
+		</div>
+	</div>
+
+<% @previousTowerId = completedProgress.tower_id %>
+<% if completedProgress.tower_id != @previousTowerId %>
+</div>
+<% end %>
+<% end %>
