@@ -1,5 +1,11 @@
 <% title @tower.name.upcase %>
 
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li><a href="<%= towers_path %>">Towers</a></li>
+  <li class="active"><%= @tower.name.capitalize %></li>
+</ol>
+
 <div class="container">
 	<h1 class="text-center"><%= @tower.name.upcase %></h1>
 </div>

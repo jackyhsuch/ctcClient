@@ -25,6 +25,7 @@ class TopicsController < ApplicationController
             )
         end
 
+        @tower = Tower.find(@topic.towers_id)
         
 	end
 end
