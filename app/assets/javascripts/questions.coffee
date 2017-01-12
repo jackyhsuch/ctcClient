@@ -31,5 +31,9 @@ $ ->
                 $("#flash-message").show()
                 $("#show-life").html("Lives left: " + data["lives"])
 
+            if data["lives"] == 0
+                $('.next-btn').prop('disabled', true)
+                $('.next-btn').text("You're dead!")
+
             $('#question-submit-btn').prop('disabled', true)
             

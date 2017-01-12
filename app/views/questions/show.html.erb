@@ -45,11 +45,11 @@
         <span id="flash-message" style="display: none"></span>
         <% if not @next_question.nil? %>
         <a href="<%= question_path(:zone_id=>@zone.id, :question_id=>@next_question.id, :level=>@next_level) %>" data-method="get">
-            <button id="" data-questionid="<%= @question.id %>" type="button" class="btn btn-info pull-right">Next</button>
+            <button id="" data-questionid="<%= @question.id %>" type="button" class="btn btn-info pull-right next-btn">Next</button>
         </a>
         <% elsif not @next_zonequestion.nil? %>
             <a href="<%= question_path(:zone_id=>@next_zone.id, :question_id=>@next_zonequestion.id, :level=>@next_level) %>" data-method="get">
-                <button id="" data-questionid="<%= @question.id %>" type="button" class="btn btn-info pull-right">Next Zone</button>
+                <button id="" data-questionid="<%= @question.id %>" type="button" class="btn btn-info pull-right next-btn">Next Zone</button>
             </a>
         <% end %>
 
