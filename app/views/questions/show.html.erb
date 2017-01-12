@@ -1,7 +1,15 @@
 <% title 'Questions' %>
 
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li><a href="<%= towers_path %>">Towers</a></li>
+  <li><a href="<%= tower_path(@tower.id) %>"><%= @tower.name.capitalize %></a></li>
+  <li><a href="<%= topic_path(@topic.id) %>"><%= @topic.name.capitalize %></a></li>
+  <li class="active">Level <%= @level %></li>
+</ol>
+
 <div class="container">
-    <h1 class="text-center"><%= @zone.name %></h1>
+    <h1 class="text-center">Zone of <%= @zone.name.capitalize %></h1>
     <span id="show-life" class="pull-right">Lives left: <%= @progress.lives %></span>
 
 </div>

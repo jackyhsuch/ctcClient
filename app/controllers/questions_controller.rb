@@ -27,6 +27,8 @@ class QuestionsController < ApplicationController
             @next_zonequestion = Question.next(@next_zone.id, 0)
         end
         
+        @topic = Topic.find(@zone.topics_id)
+        @tower = Tower.find(@topic.towers_id)
 
     end
 
